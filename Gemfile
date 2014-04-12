@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
@@ -33,6 +32,17 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# append by Loretta 12Apr2014
+group :production do
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor', '0.0.2'
+end
+
+group :development, :test do
+  # gem 'sqlite3', '1.3.8'
+  gem 'rspec-rails', '2.13.1'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
@@ -44,22 +54,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-#loretta: below are copied from chapter 3 - listing 3.1
-group :development, :test do
-  #gem 'sqlite3', '1.3.8'
-  gem 'rspec-rails', '2.13.1'
-end
-
-group :test do
-  gem 'selenium-webdriver', '2.35.1'
-  gem 'capybara', '2.1.0'
-end
-
-group :production do
-	# include the PostgreSQL 'pg' and 
-	# static assets gems 'rails_12factor' in production for deployment to Heroku
-  gem 'pg', '0.15.1'
-  gem 'rails_12factor', '0.0.2'
-  #gem 'rb-read\-line', '~> 0.4.2' 
-end
